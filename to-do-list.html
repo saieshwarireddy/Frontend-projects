@@ -1,0 +1,171 @@
+<html>
+<head>
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>To-Do List</title>
+  <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" crossorigin="anonymous">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+  <script>
+  $(document).ready(function() {
+    // Add new to-do item
+    $(".todoinput").keypress(function(event) {
+        if (event.which === 13) {// checks whether the key is pressed
+            var inputValue = $(this).val().trim();
+            if (inputValue === "") return;
+            $("ul").prepend(
+                "<li><span class='left'><i class='fa fa-trash'></i></span> " +
+                inputValue +
+                "<span class='right'><i class='fa fa-pencil'></i></span></li>"
+            );
+            $(this).val(""); // Clear input field
+        }
+    });
+
+    // Toggle input field visibility
+    $(".fa-plus").on("click", function() {
+        $("input.todoinput").slideToggle(); // Ensure selector is accurate
+    });
+
+    // Delete item
+    $("ul").on("click", "span.left", function() {
+        $(this).parent().fadeOut(500, function() {
+            $(this).remove();
+        });
+    });
+
+    // Edit item
+    $("ul").on("click", "span.right", function(event) {
+        var parent = $(this).parent();
+        var oldVal = parent.text().trim();
+        parent.html("<input type='text' class='editinput' value='" + oldVal + "'>");
+        $(".editinput").keypress(function(e) {
+            if (e.which === 13) {
+                var newVal = $(this).val().trim();
+                parent.html(
+                    "<span class='left'><i class='fa fa-trash'></i></span> " +
+                    (newVal === "" ? oldVal : newVal) +
+                    "<span class='right'><i class='fa fa-pencil'></i></span>"
+                );
+            }
+            e.stopPropagation();
+        });
+    });
+});
+</script>
+</head>
+<style>
+    body {
+        background: #603813;  /* fallback for old browsers */
+background: -webkit-linear-gradient(to right, #b29f94, #603813);  /* Chrome 10-25, Safari 5.1-6 */
+background: linear-gradient(to right, #b29f94, #603813); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
+    font-family: 'Times New Roman', Times, serif;
+    }
+    .container{
+        width: 500px;
+        margin: 200px auto;
+    }
+
+    h2{
+        color:rgb(213, 206, 228);
+    }
+    .fa-plus{
+        float: right;
+    }
+    .todoinput{
+        width: 100%;
+        font-size: 20px;
+        padding: 10px 10px 10px 15px;
+        outline:none;
+    }
+    ul{
+        list-style: none;
+        margin: 0;
+        padding: 0;
+        position: relative;
+    }
+    li{
+        height: 50px;
+        line-height: 50px;
+        color: rgb(255, 253, 254);
+    }
+    li:nth-child(2n){
+        background:rgba(176, 161, 161, 0.5);
+    }
+    
+    .left {
+        background-color: #b29f94;
+        height: 35px;
+        padding-top: 17px;
+        text-align: center;
+        color: rgb(28, 27, 27);
+        display: inline-block;
+        width: 0;
+        opacity: 0;
+        transition: 0.2s linear;
+        padding: 25px auto;
+    }
+    .right{
+        background-color: #b29f94;
+        height: 35px;
+        text-align: center;
+        padding-top: 15px;
+        color: hsl(0, 2%, 8%);
+        display: inline-block;
+        width: 0;
+        opacity: 0;
+        transition: 0.2s linear; 
+        position: absolute;
+        right: 0px;
+    }
+    li:hover span{
+        width: 40px;
+        opacity: 1;
+    }
+    .span 
+    .fa-trash{
+          padding: 25px auto;
+    }
+    
+</style>
+<body>
+
+	<div class="container">
+		<h2>To-Do List <i class="fa fa-plus"></i></h2>
+		<input type="text" placeholder="Enter To-Do" class="todoinput">
+		<ul>
+			<li>
+				<span class="left">
+					<i class="fa fa-trash"></i>
+				</span> 
+				<span class="text">
+					SLEEP
+				</span>
+				<span class="right">
+					<i class="fa fa-pencil"></i>
+				</span>
+			</li>
+			<li>
+				<span class="left">
+					<i class="fa fa-trash"></i>
+				</span> 
+				<span class="text">
+					EAT
+				</span>
+				<span class="right"><i class="fa fa-pencil"></i>
+				</span>
+			</li>
+			<li>
+				<span class="left">
+					<i class="fa fa-trash"></i>
+				</span>
+				<span class="text">
+					REPEAT
+				</span>
+				<span class="right">
+					<i class="fa fa-pencil"></i>
+				</span>
+			</li>
+		</ul>
+	</div>
+</body>
+</html>
