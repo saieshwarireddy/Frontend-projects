@@ -1,0 +1,147 @@
+<!doctype html>
+<html>
+<head>
+<title>
+FORM
+</title>
+<style type="text/css">
+	body{
+		background-color: orange;
+    
+	}
+	form{
+    resize: both;
+    overflow: auto;
+    min-width: 50px; /*suggest a min-width & min-height*/
+    min-height: 50px;
+		background-color: white;
+    width: 1000px;
+		margin:0 auto;
+	}
+  label{
+    width:130px;
+    display: inline-flex;
+  }
+</style>
+</head>
+<body>
+<form method="post" action="dp.py">
+<fieldset>
+<h1 style="text-align: center;"> APPLICATION FORM </h1>
+<fieldset>
+<legend> personal information </legend> 
+<br> 
+<label> Candidates Name : </label><sup style="color:red">*</sup>
+<input type="text" required="required">
+<br> <br>
+<label> Fathers Name : </label><sup style="color:red">*</sup>
+<input type="text" required="required">
+<br><br>
+<label> Mothers Name : </label><sup style="color:red">*</sup>
+<input type="text" required="required" autocomplete="">
+<br><br>
+<label> Date of Birth : </label><sup style="color:red">*</sup>
+<input type ="date" required="required">
+<br><br>
+<label> Time of Birth : </label>
+<input type ="time">
+<br><br>
+<label> certificate of dob :</label><sup style="color:red">*</sup>
+<input type="file" required="required">
+<br><br>
+<label> Gender : </label><sup style="color:red">*</sup>
+<input type="radio" name="gender" required="required">male
+<input type="radio" name="gender"required="required">female
+<br> <br>
+<LABEL> roll number: </label><sup style="color:red">*</sup>
+<input type="number">
+<label> password: </label><sup style="color:red">*</sup>
+<input type="password" name="" pattern="[A-Z]{1}[0-9]{2}[a-z]{3}" title="should contain one captial letter 2 numbers and 3 small letters ">
+<br><br>
+<input type ="button" onclick="alert('SUCESSFUL')" value="click me">
+</fieldset>
+<br>
+<fieldset>
+<legend> contact information </legend>
+<br>
+<label> Mobile number :</label>
+<input type="tel">
+<br><br>
+<label> email :</label><sup style="color:red">*</sup>
+<input type="email" required="required">
+<br><br>
+<textarea > House no./flat no. :</textarea>
+ <br> <br>
+<textarea> locality : </textarea>
+<br> <br>
+<textarea> village : </textarea>
+<br> <br>
+<textarea> District: </textarea>
+<br> <br>
+<label> STATE: </label>
+<select>
+<option> telangana </option>
+<option> andhra </option>
+<br><br>
+<label> district:</label>
+<br>
+<input type="text" name="" list="district">
+<datalist id="district">
+	<option> hyderabad </option>
+	<option> rangareddy</option>
+	<option>medchal</option>
+	<option>medak</option>
+</datalist>
+</select>
+</fieldset>
+<br>
+<fieldset>
+<legend> intrests </legend>
+<label> select favourite sports :</label>
+<input type="checkbox"> cricket
+<input type="checkbox"> football
+<input type="checkbox"> basketball
+<input type="checkbox"> tennis
+<input type="checkbox"> swimming
+<br><br>
+<label>select your favourite color:</label>
+<input type="color">
+<input type="submit" value="set">
+<br><br>
+<label>number of certificates:</label>
+<input type="number" min="1" max="10">
+<label>range:</label>
+<input type="range" min="1" max="10">
+<label>search:</label>
+<input type="search">
+</fieldset>
+</fieldset>
+<br><br>
+<input type="submit" value="submit">
+<input type="reset" value="reset">
+</fieldset>
+</form>
+</body>
+</html>
+
+
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title></title>
+</head>
+<body>
+	<form>
+	<input type="image"><br>
+	<input type="number" min="10" max="100" step="10" placeholder="10"><br>
+	<input type="file" name="file" capture="user" accept="video/*">
+	<p>html</p>
+	<progress value="10" max="100" style="color: red;">
+	</progress>
+	<input type="text" inputmode="url" name="">
+	</form>
+
+</body>
+</html>
